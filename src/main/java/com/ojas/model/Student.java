@@ -1,14 +1,17 @@
 package com.ojas.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Student {
 	@Id
 	private int sNo;
 	private String name;
-	private String address;
+	@OneToOne(cascade = CascadeType.ALL)
+	private Address address;
 	private String emailId;
 	private String phoneNo;
 	public int getsNo() {
@@ -23,10 +26,10 @@ public class Student {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getAddress() {
+	public Address getAddress() {
 		return address;
 	}
-	public void setAddress(String address) {
+	public void setAddress(Address address) {
 		this.address = address;
 	}
 	public String getEmailId() {
