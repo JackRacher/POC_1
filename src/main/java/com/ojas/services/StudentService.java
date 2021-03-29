@@ -1,6 +1,7 @@
 package com.ojas.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +23,13 @@ public class StudentService {
 	}
 	
 	public Iterable<Student> pagination(){
-		return dao.findAll(PageRequest.of(0, 2));
+		
+		Page<Student> page = dao.findAll(PageRequest.of(3, 2));
+		return page;
+	}
+	
+	public Iterable<Student> pagiantionByNumber(Integer number){
+		return dao.findAll(PageRequest.of(number, 2));
 	}
 
 }
