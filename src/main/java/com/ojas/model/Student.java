@@ -10,7 +10,7 @@ public class Student {
 	@Id
 	private int sNo;
 	private String name;
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	private Address address;
 	private String emailId;
 	private String phoneNo;
