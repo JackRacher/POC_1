@@ -1,15 +1,22 @@
 package com.ojas.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Address {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int hNo;
 	private String city;
 	private String state;
+	
+	@OneToOne(mappedBy = "address")
+	private Student student;
 	public int gethNo() {
 		return hNo;
 	}
